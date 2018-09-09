@@ -3,12 +3,12 @@ from tkinter import *
 class MyFirstGUI:
     def __init__(self, master):
         self.master = master
-        master.title("A simple GUI")
+        master.title("Amazon Price Webscraper")
 
         self.frame = Frame(root)
         self.frame.pack( side = BOTTOM )
 
-        self.label = Label(master, text="Welcome to our Web Scraper!")
+        self.label = Label(master, text="Enter the web address of an item to track")
         self.label.pack()
 
         self.input = Entry(master)
