@@ -1,6 +1,6 @@
 from tkinter import *
 
-class MyFirstGUI:
+class ScaperGUI:
     def __init__(self, master):
         self.master = master
         master.title("Amazon Price Webscraper")
