@@ -5,7 +5,7 @@ class MyFirstGUI:
         self.master = master
         master.title("A simple GUI")
 
-        self.label = Label(master, text="This is our first GUI!")
+        self.label = Label(master, text="Welcome to our Web Scraper!")
         self.label.pack()
 
         self.greet_button = Button(master, text="Greet", command=self.greet)
