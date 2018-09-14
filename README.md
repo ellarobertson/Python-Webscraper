@@ -1,11 +1,11 @@
-~~#Python-Webcrawler
+#Python-Webcrawler
 ## Steps
 ### Step 1
 A beautiful UI
 ### Step 2
 A beautiful UI that connects to a DB
 ### Step 3
-A beautiful UI that connects to a DB, takes user input in the form of links, and stores the input in said DB ~~
+A beautiful UI that connects to a DB, takes user input in the form of links, and stores the input in said DB
 ### Step 4
 A beautiful UI that connects to a DB, takes user input in the form of links, and stores the input in said DB after validating the input.
 ### Step 5
