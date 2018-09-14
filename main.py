@@ -32,7 +32,7 @@ class ScraperGUI:
         root.resizable(False, False)
 
         self.frame = Frame(root)
-        self.frame.pack( side = BOTTOM, pady = (0, 80) )
+        self.frame.pack( side = BOTTOM, pady = (0, 50) )
 
         self.label = Label(master, text="Enter the web address of an item to track")
         self.label.pack(pady = (25,0))
@@ -46,6 +46,10 @@ class ScraperGUI:
 
         self.close_button = Button(self.frame, text="Close", command=master.quit)
         self.close_button.pack( side = LEFT )
+
+        self.price_label = Label(master, text= "Current Price: (input an item)")
+        self.price_label.pack(pady = (10,0))
+
 
     def store_input(self):
         user_link = self.input.get()
