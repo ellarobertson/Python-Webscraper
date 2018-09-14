@@ -63,7 +63,7 @@ class ScraperGUI:
         try:
             page = requests.get(link)
             soup = BeautifulSoup(page.content, 'html.parser')
-            price = soup.find_all(id="priceblock_ourprice")
+            price = soup.find_all(id="priceblock_ourprice")[0].string
             print(price)
         except:
             print("That was not a good link! Try again.")
