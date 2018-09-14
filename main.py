@@ -32,7 +32,7 @@ class ScraperGUI:
         root.resizable(False, False)
 
         self.frame = Frame(root)
-        self.frame.pack( side = BOTTOM, pady = (0, 50) )
+        self.frame.pack( side = BOTTOM, pady = (0, 20) )
 
         self.label = Label(master, text="Enter the web address of an item to track")
         self.label.pack(pady = (25,0))
@@ -47,16 +47,23 @@ class ScraperGUI:
         self.close_button = Button(self.frame, text="Close", command=master.quit)
         self.close_button.pack( side = LEFT )
 
+        self.item_label = Label(master, text= "Title")
+        self.item_label.pack(pady = (10,0))
+
         self.price_label = Label(master, text= "Current Price: (input an item)")
         self.price_label.pack(pady = (10,0))
 
 
     def store_input(self):
         user_link = self.input.get()
+        self.clear_text()
         db.collection(u'links').add({
             u'link': user_link
         })
         self.get_html(user_link)
+
+    def clear_text(self):
+        self.input.delete(0, 'end')
 
     def print_all_links(self):
         docs = db.collection(u'links').get()
@@ -69,6 +76,7 @@ class ScraperGUI:
             soup = BeautifulSoup(page.content, 'html.parser')
             price = soup.find_all(id="priceblock_ourprice")[0].string
             title = soup.find_all(id="productTitle")[0].string
+            self.item_label['text'] = "Title :)"
             self.price_label['text'] = "Current price: " + price
         except:
             print("That was not a good link! Try again.")
