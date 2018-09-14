@@ -14,7 +14,7 @@ firebase_admin.initialize_app(cred, {
 
 db = firestore.client()
 
-class MyFirstGUI:
+class ScaperGUI:
     def __init__(self, master):
         self.print_all_links()
         self.master = master
