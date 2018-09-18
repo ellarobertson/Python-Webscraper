@@ -57,12 +57,12 @@ class ScraperGUI:
 
     def process_input(self):
         user_link = self.input.get()
-        pattern = re.compile('/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/')
+        pattern = re.compile('https?://(?:[-\w.]|(?:%[\da-fA-F]{2}))+')
         if re.match(pattern, user_link):
             self.clear_text()
             self.get_html(user_link)
         else:
-            print("BAD LINK")
+            print("That was not a good link! Try again.")
 
     def store_info(self, title, price, link):
         db.collection(u'links').add({
