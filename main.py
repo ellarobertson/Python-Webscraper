@@ -27,7 +27,7 @@ db = firestore.client()
 class ScraperGUI:
     def __init__(self, master):
 
-        email = EmailMsg(12.99,11.99,'Sugandese People','ella.a.robertson@gmail.com')
+        email = EmailMsg(12.99,11.99,'Ligma','ella.a.robertson@gmail.com')
         self.master = master
         master.wm_iconbitmap("money.ico")
         master.title("Amazon Price Webscraper")
