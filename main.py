@@ -41,7 +41,7 @@ class ScraperGUI:
         self.input.pack()
         self.input.config(width = 80)
 
-        self.print_button = Button(self.frame, text="Print Input", command=self.store_input)
+        self.print_button = Button(self.frame, text="Print Input", command=self.process_input)
         self.print_button.pack( side = LEFT, padx = (0, 10))
 
         self.close_button = Button(self.frame, text="Close", command=master.quit)
@@ -54,13 +54,17 @@ class ScraperGUI:
         self.price_label.pack(pady = (10,0))
 
 
-    def store_input(self):
+    def process_input(self):
         user_link = self.input.get()
         self.clear_text()
-        db.collection(u'links').add({
-            u'link': user_link
-        })
         self.get_html(user_link)
+
+    def store_info(self, title, price, link):
+        db.collection(u'links').add({
+            u'link': link,
+            u'title': title,
+            u'price': price
+        })
 
     def clear_text(self):
         self.input.delete(0, 'end')
@@ -78,6 +82,7 @@ class ScraperGUI:
             title = soup.find_all(id="productTitle")[0].string
             self.item_label['text'] = "Title :)"
             self.price_label['text'] = "Current price: " + price
+            self.store_info(title, price, link)
         except:
             print("That was not a good link! Try again.")
 
