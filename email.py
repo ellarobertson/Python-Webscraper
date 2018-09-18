@@ -11,12 +11,12 @@ class EmailMsg:
         sendMessage(self, recipient, oldPrice, newPrice, itemTitle)
 
     def connectToServer(self):
-        server = smtplib.SMTP(‘smtp.gmail.com’, 587)
+        server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
 
     def sendMessage(self, recipient, oldPrice, newPrice, itemTitle):
         msg = MIMEMultipart()
-        msg[‘From’] = self.un
-        msg[‘To’] = recipient
-        msg[‘Subject’] = 'New Price for ' + itemTitle + '!'
-        message = 'Hello, /n the price for' + itemTitle + 'has changed from' + oldPrice +  'to'  + newPrice.
+        msg['From'] = self.un
+        msg['To'] = recipient
+        msg['Subject'] = 'New Price for ' + itemTitle + '!'
+        message = 'Hello, /n the price for' + itemTitle + 'has changed from' + oldPrice +  'to'  + newPrice

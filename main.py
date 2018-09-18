@@ -1,6 +1,7 @@
 from tkinter import *
 import requests
 from bs4 import BeautifulSoup
+import re
 
 
 '''Everything below here is to connect to the DB'''
@@ -56,8 +57,12 @@ class ScraperGUI:
 
     def process_input(self):
         user_link = self.input.get()
-        self.clear_text()
-        self.get_html(user_link)
+        pattern = re.compile('/((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/')
+        if re.match(pattern, user_link):
+            self.clear_text()
+            self.get_html(user_link)
+        else:
+            print("BAD LINK")
 
     def store_info(self, title, price, link):
         db.collection(u'links').add({
