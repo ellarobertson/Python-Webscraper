@@ -19,4 +19,4 @@ class EmailMsg:
         msg[‘From’] = self.un
         msg[‘To’] = recipient
         msg[‘Subject’] = 'New Price for ' + itemTitle + '!'
-        message = Hello, /n the price for + itemTitle + has changed from + oldPrice +  to  + newPrice.
+        message = 'Hello, /n the price for' + itemTitle + 'has changed from' + oldPrice +  'to'  + newPrice.
