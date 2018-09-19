@@ -4,12 +4,12 @@ from datetime import datetime
 
 from apscheduler.scheduler import Scheduler
 
-# Start the scheduler
-sched = Scheduler()
-sched.start()
+print('in scheduler')
 
 def job_function():
-    execfile(main.py)
+    email = EmailMsg(12.99,11.99,'Ligma','ella.a.robertson@gmail.com')
+    print('Automated')
 
-# Schedule job_function to be called every two hours
+sched = Scheduler(standalone = True)
 sched.add_interval_job(job_function, minutes=1)
+sched.start()
