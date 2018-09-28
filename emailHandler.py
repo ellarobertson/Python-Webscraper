@@ -6,7 +6,7 @@ class EmailMsg:
 
     def __init__(self, oldPrice, newPrice, itemTitle, recipient):
         self.un = 'amazonpricetrackerproj@gmail.com'
-        self.pw = 'Jordan333'
+        self.pw = '********'
         print('Accessing email mssg class')
         self.sendMessage(recipient, oldPrice, newPrice, itemTitle)
 

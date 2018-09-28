@@ -7,7 +7,7 @@ from apscheduler.scheduler import Scheduler
 print('in scheduler')
 
 def job_function():
-    email = EmailMsg(12.99,11.99,'Ligma','ella.a.robertson@gmail.com')
+    email = EmailMsg(12.99,11.99,'Title','email@gmail.com')
     print('Automated')
 
 sched = Scheduler(standalone = True)
